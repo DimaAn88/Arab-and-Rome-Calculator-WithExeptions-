@@ -140,6 +140,7 @@ String d2= (dx);
             }
 
             // arab numbers
+            if (p<60) {
             if (q==3) { int mor;
                 mor=usersum[1]; if (mor>48) {try {
                     throw new Exception("//число больше 10");
@@ -158,7 +159,7 @@ String d2= (dx);
             if ((len1-q)>2) { try {
                 throw new Exception("//число больше 10");
             } catch (Exception ex) {
-                throw new RuntimeException(ex);}}
+                throw new RuntimeException(ex);}}}
 
 
 
@@ -293,8 +294,36 @@ String d2= (dx);
                         }
                     }
 
+
+                int mor5;
+                if (usersum[0] == 88) {
+                    if (usersum[1] > 47) {
+                        try {
+                            throw new Exception("//число больше 10");
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+
+                    }
+                }
+
+                if (usersum[q] == 88) { if ((len1-q)>1) {
+                    if (usersum[len1-1 ] > 47) {
+                        try {
+                            throw new Exception("//число больше 10");
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+                    }
+                    }
+                }
+
             }
-            // System.out.println("числа " + w1 + "  " + w2);
+
+
+            //System.out.println("числа " + w1 + "  " + w2);
             // Math operations
             int result = 0;
             if (usersum[q - 1] == 43) {
@@ -308,12 +337,12 @@ String d2= (dx);
             }
             if (usersum[q - 1] == 42) {
                 result = w1 * w2;
-                answer = Integer.toString(result);
-            }
 
+            }
+            answer = Integer.toString(result);
             if (x == 2) {
                 if (x > 1) {
-                    System.out.println(result);
+                  //  System.out.println(result);
                 }
             }
 
