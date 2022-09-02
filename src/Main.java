@@ -1,33 +1,38 @@
- import java.util.Arrays;
 import java.util.Scanner;
-import java.io.*;
 
 public class Main {
+    private static String dx;
+
+
     public static void main(String[] args) {
-        String mes = calc();
-        System.out.println(mes);
-
-
-            // input data
-
-    }
-class calculator {
-        int w1, w2;
-}
-    private static String calc() {
-        String a = "Введите два неотрицательных числа (арабских или римских) не больше 10 с операндом +-*/, например 1+2 или I*IV";
         String d = null;
-        int err1 = 0;
+
+
+
+
+        String a = "Введите два неотрицательных числа (арабских или римских) не больше 10 с операндом +-*/, например 1+2 или I*IV";
         System.out.println(a);
-        int q = 0;
-        int w1 = 0;
-        int w2 = 0;
-        String answer= "ответ ";
-        String xx = " ";
         Scanner in = new Scanner(System.in);
         d = in.next();
         in.close();
-        int len1 = d.length();
+        dx=d;
+        String mes = calc(dx); System.out.println(mes);
+    }
+
+
+
+
+    private static String calc(String dx) {
+
+        int err1 = 0;
+String d2= (dx);
+        int q = 0;
+        int w1 = 0;
+        int w2 = 0;
+        String answer = "ответ ";
+        String xx = " ";
+
+        int len1 = d2.length();
         //System.out.println(len1);
         //unicode's operation
         String f = "0123456789IVX+-/*";
@@ -50,7 +55,7 @@ class calculator {
         int[] calcul = {42, 43, 45, 47};
         int[] usersum = new int[len1];
         for (j = 0; j < len1; j++) {
-            usersum[j] = d.codePointAt(j);
+            usersum[j] = d2.codePointAt(j);
         }
         //System.out.println(Arrays.toString(usersum));
         //controlling terms. 1st compare all simbols
@@ -115,8 +120,8 @@ class calculator {
             int p1 = usersum[len1 - 1];
             int p3 = Math.abs(p1 - p);
             if (p3 > 15) {
-               // System.out.println("данные разных типов");
-               // return "данные разных типов";
+                // System.out.println("данные разных типов");
+                // return "данные разных типов";
                 try {
                     throw new Exception("//данные разных типов");
                 } catch (Exception ex) {
@@ -135,13 +140,68 @@ class calculator {
             }
 
             // arab numbers
+            if (q==3) { int mor;
+                mor=usersum[1]; if (mor>48) {try {
+                    throw new Exception("//число больше 10");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);}}}
+            if (q>3) { try {
+                    throw new Exception("//число больше 10");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);}}
+
+            if ((len1-q)==2) { int mor1;
+                mor1=usersum[(q+1)]; if (mor1>48) {try {
+                    throw new Exception("//число больше 10");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);}}}
+            if ((len1-q)>2) { try {
+                throw new Exception("//число больше 10");
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);}}
+
+
+
+
+
+
+
+
+
 
             if (x == 2) {
                 w1 = usersum[0] - 48;
                 w2 = usersum[2] - 48;
+                if (w1==0) {
+
+
+                        try {
+                            throw new Exception("число должно быть больше 0");
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);}
+                }
+
+
+
+
+
+
+
+
+
+
                 if (q == 3) {
                     w1 = 10;
                     w2 = usersum[3] - 48;
+                    if (w2==0) {
+
+
+                        try {
+                            throw new Exception("число должно быть больше 0");
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);}
+                    }
+
                 }
                 if ((len1 - q) == 2) {
                     w2 = 10;
@@ -247,7 +307,8 @@ class calculator {
                 result = w1 / w2;
             }
             if (usersum[q - 1] == 42) {
-                result = w1 * w2; answer=Integer.toString(result);
+                result = w1 * w2;
+                answer = Integer.toString(result);
             }
 
             if (x == 2) {
@@ -264,41 +325,50 @@ class calculator {
                 //System.out.print("ответ  ");
                 // System.out.println(des);
                 for (i = 0; i < des; i++) {
-                    xx=xx+"X";
+                    xx = xx + "X";
                     //System.out.print("X");
                 }
                 u = result - des * 10;
-                if (u == 1) { xx=xx+"I";
+                if (u == 1) {
+                    xx = xx + "I";
                     //System.out.print("I");
                 }
-                if (u == 2) { xx=xx+"II";
-                   // System.out.print("II");
+                if (u == 2) {
+                    xx = xx + "II";
+                    // System.out.print("II");
                 }
-                if (u == 3) { xx=xx+"III";
-                   // System.out.print("III");
+                if (u == 3) {
+                    xx = xx + "III";
+                    // System.out.print("III");
                 }
-                if (u == 4) { xx=xx+"IV";
+                if (u == 4) {
+                    xx = xx + "IV";
                     //System.out.print("IV");
                 }
-                if (u == 5) { xx=xx+"V";
-                   // System.out.print("V");
+                if (u == 5) {
+                    xx = xx + "V";
+                    // System.out.print("V");
                 }
-                if (u == 6) { xx=xx+"VI";
-                   // System.out.print("VI");
+                if (u == 6) {
+                    xx = xx + "VI";
+                    // System.out.print("VI");
                 }
-                if (u == 7) { xx=xx+"VII";
-                   // System.out.print("VII");
+                if (u == 7) {
+                    xx = xx + "VII";
+                    // System.out.print("VII");
                 }
-                if (u == 8) { xx=xx+"VIII";
-                   // System.out.print("VIII");
+                if (u == 8) {
+                    xx = xx + "VIII";
+                    // System.out.print("VIII");
                 }
-                if (u == 9) { xx=xx+"IX";
+                if (u == 9) {
+                    xx = xx + "IX";
                     //System.out.print("IX");
                 }
-             answer=xx;
+                answer = xx;
             } else {
-               // System.out.print("ошибка! римский результат должен быть больше 0");
-               // return "римский результат должен быть больше нуля";
+                // System.out.print("ошибка! римский результат должен быть больше 0");
+                // return "римский результат должен быть больше нуля";
                 try {
                     throw new Exception("//римский результат должен быть больше нуля");
                 } catch (Exception ex) {
@@ -307,8 +377,6 @@ class calculator {
 
             }
         }
-
-
 
 
         return answer;
